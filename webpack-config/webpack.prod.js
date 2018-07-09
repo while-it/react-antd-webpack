@@ -10,9 +10,6 @@ const path = require('path');
 
 const ZipPlugin = require('zip-webpack-plugin');
 
-const devMode =
-  process.env.AppEnv === 'dev' || process.env.AppEnv === 'demo' ? '-demo' : '';
-
 const getThemeConfig = require('../theme.js');
 const theme = getThemeConfig();
 
