@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const devMode = process.env.NODE_ENV !== 'production';
-
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 function getFileRelativePath(dir) {
   return path.join(__dirname, '..', dir);
 }

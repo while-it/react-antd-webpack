@@ -23,13 +23,26 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.s?[ac]ss$/,
-        exclude: /\/node_modules/,
+        test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'sass-loader'
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              importLoaders: 2,
+              localIdentNam: '[name]_[local]_[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
         ]
       },
       {
@@ -49,8 +62,8 @@ module.exports = merge(common, {
             options: {
               strictMath: false,
               noIeCompat: true,
-              javascriptEnabled: true
-              // modifyVars: theme
+              javascriptEnabled: true,
+              modifyVars: theme
             }
           }
         ]

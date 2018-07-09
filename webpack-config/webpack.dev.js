@@ -29,8 +29,27 @@ module.exports = merge(common, {
         loader: 'eslint-loader'
       },
       {
-        test: /\.s?[ac]ss$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              importLoaders: 2,
+              localIdentNam: '[name]_[local]_[hash:base64:5]'
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       },
       {
         test: /\.less$/,

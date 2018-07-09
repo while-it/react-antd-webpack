@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Button } from 'antd';
+
 function Header() {
   return (
     <div>
-      <Button>test</Button>
+      <span>6456</span>
+      <Button type="primary">test</Button>
     </div>
   );
 }
