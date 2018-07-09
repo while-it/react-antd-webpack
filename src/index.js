@@ -1,14 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Button } from 'antd';
+import dva from 'dva';
+import createLoading from 'dva-loading';
+import createLogger from 'dva-logger';
+import moment from 'moment';
+import router from './router';
+import createHistory from 'history/createHashHistory';
 
-function Header() {
-  return (
-    <div>
-      <span>6456</span>
-      <Button type="primary">test</Button>
-    </div>
-  );
+moment.locale('week-setting', {
+  week: {
+    dow: 1 // Monday is the first day of the week.
+  }
+});
+const app = dva({
+  /** @todo define history */
+  history: createHistory(),
+  onError() {}
+});
+const envStr = '-dev';
+app.use(createLoading());
+/*
+*如果调用api的前缀需要加-dev则加载答应日志功能
+*/
+if (envStr === '-dev') {
+  app.use(createLogger());
 }
 
-ReactDOM.render(<Header />, document.getElementById('root'));
+app.router(router);
+
+app.start('#root');

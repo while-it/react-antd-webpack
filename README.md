@@ -3,6 +3,8 @@
 > > > ui 框架 Ant Design,
 > > > 状态管理 dva，而木有用它自带的 roadrc（感觉封装化太强不是很喜欢）
 
+npm install
+
 ```项目结构
 src
  components 公共组件
