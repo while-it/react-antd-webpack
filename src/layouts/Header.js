@@ -7,7 +7,7 @@ function Header({ location }) {
     <Menu selectedKeys={[location.pathname]} mode="horizontal" theme="dark">
       <Menu.Item key="/">
         <Link to="/">
-          <Icon type="home" />主页
+          <Icon type="home" />变形动画
         </Link>
       </Menu.Item>
       <Menu.Item key="/404">
